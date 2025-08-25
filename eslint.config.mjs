@@ -10,10 +10,13 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
+  // Next.js recommended rules
   ...compat.extends("next/core-web-vitals"),
+
+  // Custom rules and ignores
   {
     ignores: [
-      "node_modules/**",
+      "**/node_modules/**",
       ".next/**",
       "out/**",
       "build/**",

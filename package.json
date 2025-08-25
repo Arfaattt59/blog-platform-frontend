@@ -2,11 +2,14 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://arfaattt59.github.io/blog-frontend",
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+    "build": "next build && next export",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d out"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.7",
@@ -24,6 +27,7 @@
     "@tailwindcss/typography": "^0.5.16",
     "eslint": "^9",
     "eslint-config-next": "15.5.0",
+    "gh-pages": "^6.3.0",
     "tailwindcss": "^4"
   }
 }
