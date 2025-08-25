@@ -21,7 +21,7 @@ export default function CommentSection({ post, initialComments = [] }) {
     if (!window.confirm('Are you sure you want to delete this comment?')) return;
     
     try {
-      const res = await fetch(`http://localhost:5000/api/posts/${post._id}/comments/${commentId}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts/${post._id}/comments/${commentId}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${user.token}` },
       });
@@ -53,7 +53,7 @@ export default function CommentSection({ post, initialComments = [] }) {
     // --- END OPTIMISTIC UPDATE ---
 
     try {
-      const res = await fetch(`http://localhost:5000/api/posts/${post._id}/comments`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts/${post._id}/comments`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${user.token}` },
         body: JSON.stringify({ text: commentText }),

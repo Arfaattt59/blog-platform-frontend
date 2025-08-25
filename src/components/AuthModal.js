@@ -20,7 +20,7 @@ export default function AuthModal({ isOpen, closeModal }) {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch('http://localhost:5000/api/users/login', {
+      const res = await fetch('${process.env.NEXT_PUBLIC_API_URL}/api/users/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }), // 'email' field can be username or email
@@ -41,7 +41,7 @@ export default function AuthModal({ isOpen, closeModal }) {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch('http://localhost:5000/api/users', {
+      const res = await fetch('${process.env.NEXT_PUBLIC_API_URL}/api/users', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, password, username }),

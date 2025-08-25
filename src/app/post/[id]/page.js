@@ -25,7 +25,7 @@ export default function PostPage({ params }) {
     const fetchPost = async () => {
       try {
         // 3. Use the unwrapped postId variable
-        const res = await fetch(`http://localhost:5000/api/posts/${postId}`); 
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts/${postId}`); 
         if (!res.ok) { throw new Error('Post not found'); }
         const data = await res.json();
         setPost(data);

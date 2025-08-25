@@ -20,7 +20,7 @@ export default function DashboardPage() {
         return;
       }
       try {
-        const res = await fetch('http://localhost:5000/api/posts/myposts', {
+        const res = await fetch('${process.env.NEXT_PUBLIC_API_URL}/api/posts/myposts', {
           headers: { 'Authorization': `Bearer ${user.token}` },
           cache: 'no-cache',
         });
@@ -44,7 +44,7 @@ export default function DashboardPage() {
     }
     // ... (keep the rest of the handleDelete function the same)
     try {
-      const res = await fetch(`http://localhost:5000/api/posts/${postId}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts/${postId}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${user.token}` },
       });

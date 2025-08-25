@@ -22,7 +22,7 @@ const postId = React.use(params).id;
 
     const fetchPost = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/posts/${postId}`);
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts/${postId}`);
         if (res.ok) {
           const data = await res.json();
           // Security check: ensure the logged-in user is the author of the post
@@ -47,7 +47,7 @@ const postId = React.use(params).id;
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:5000/api/posts/${postId}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts/${postId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

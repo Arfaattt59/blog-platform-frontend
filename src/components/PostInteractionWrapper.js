@@ -26,7 +26,7 @@ export default function PostInteractionWrapper({ post }) {
     setLikes(newLikes);
 
     try {
-      const res = await fetch(`http://localhost:5000/api/posts/${post._id}/like`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts/${post._id}/like`, {
         method: 'PUT',
         headers: { 'Authorization': `Bearer ${user.token}` }
       });

@@ -28,7 +28,7 @@ export default function CreatePostPage() {
   setIsSuggesting(true);
   toast.loading('Generating AI suggestions...');
   try {
-    const res = await fetch('http://localhost:5000/api/ai/suggest', {
+    const res = await fetch('${process.env.NEXT_PUBLIC_API_URL}/api/ai/suggest', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -61,7 +61,7 @@ export default function CreatePostPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch('http://localhost:5000/api/posts', {
+      const res = await fetch('${process.env.NEXT_PUBLIC_API_URL}/api/posts', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${user.token}`},
         body: JSON.stringify({ title, content }),

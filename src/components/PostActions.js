@@ -24,7 +24,7 @@ export default function PostActions({ post }) {
     const newLikes = newIsLiked ? [...likes, user._id] : likes.filter(id => id !== user._id);
     setIsLiked(newIsLiked); setLikes(newLikes);
     try {
-      const res = await fetch(`http://localhost:5000/api/posts/${post._id}/like`, { method: 'PUT', headers: { 'Authorization': `Bearer ${user.token}` } });
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts/${post._id}/like`, { method: 'PUT', headers: { 'Authorization': `Bearer ${user.token}` } });
       if (!res.ok) { setIsLiked(!newIsLiked); setLikes(likes); toast.error('Failed to update like.'); }
     } catch (error) { setIsLiked(!newIsLiked); setLikes(likes); toast.error('An error occurred.'); }
   };

@@ -4,7 +4,7 @@ import PostCard from "@/components/PostCard";
 // This function runs on the server to fetch our posts
 async function getPosts() {
   try {
-    const res = await fetch('http://localhost:5000/api/posts', { 
+    const res = await fetch('${process.env.NEXT_PUBLIC_API_URL}/api/posts', { 
       cache: 'no-cache' // This ensures we always get the latest posts
     });
 
